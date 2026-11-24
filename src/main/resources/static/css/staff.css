@@ -1,0 +1,425 @@
+
+/* ==========================================
+   SMART CAMPUS - STAFF DASHBOARD
+   ========================================== */
+
+/* Staff dashboard content */
+.staff-page-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    padding-top: 24px;
+}
+
+/* Staff profile */
+.staff-page-content #profile {
+    width: 100%;
+    scroll-margin-top: 20px;
+}
+
+/* Department complaints section */
+#departmentComplaints {
+    width: 100%;
+    padding: 28px;
+    scroll-margin-top: 20px;
+}
+
+/* Department selection area */
+.staff-filter-bar {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.staff-department-field {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    flex: 1;
+    min-width: 220px;
+    max-width: 420px;
+}
+
+.staff-department-field label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+#department {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--text);
+    font-size: 14px;
+}
+
+#department:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(18, 103, 233, 0.1);
+}
+
+/* View complaints button */
+#loadBtn {
+    min-height: 44px;
+    padding: 12px 20px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#loadBtn:hover {
+    background: var(--primary-dark);
+}
+
+#loadBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Staff complaints table */
+#departmentComplaints .complaints-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+#departmentComplaints table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+}
+
+#departmentComplaints th {
+    white-space: nowrap;
+}
+
+#departmentComplaints td {
+    vertical-align: middle;
+}
+
+/* Action controls */
+#staffTicketTable td:last-child {
+    min-width: 200px;
+}
+
+#staffTicketTable td select {
+    width: auto;
+    min-width: 130px;
+    max-width: 200px;
+    margin: 4px;
+    padding: 9px;
+}
+
+#staffTicketTable td button {
+    margin: 4px;
+    padding: 9px 13px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+/* Empty table message */
+#staffTicketTable .empty-message {
+    padding: 30px;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* ==========================================
+   DEPARTMENT CHANGE REQUEST
+   ========================================== */
+
+#departmentChange {
+    width: 100%;
+    padding: 28px;
+    scroll-margin-top: 20px;
+}
+
+/* Request form card */
+.department-change-card {
+    margin-top: 24px;
+    padding: 24px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+/* Form fields */
+.department-change-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.department-change-field {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.department-change-field label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.department-change-field label span {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+/* Department dropdown and reason */
+#requestedDepartment,
+#departmentChangeReason {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--text);
+    font-size: 14px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+#requestedDepartment {
+    max-width: 450px;
+    min-height: 45px;
+}
+
+#departmentChangeReason {
+    min-height: 110px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+#requestedDepartment:focus,
+#departmentChangeReason:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(18, 103, 233, 0.1);
+}
+
+#departmentChangeReason::placeholder {
+    color: var(--muted);
+}
+
+/* Submit button */
+.department-change-actions {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 22px;
+}
+
+#submitDepartmentRequestBtn {
+    min-height: 44px;
+    padding: 12px 24px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#submitDepartmentRequestBtn:hover {
+    background: var(--primary-dark);
+}
+
+#submitDepartmentRequestBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Success and error message */
+#departmentRequestMessage {
+    margin-top: 14px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#departmentRequestMessage:empty {
+    display: none;
+}
+
+#departmentRequestMessage.success {
+    color: #15803d;
+}
+
+#departmentRequestMessage.error {
+    color: #dc2626;
+}
+
+/* ==========================================
+   REQUEST HISTORY
+   ========================================== */
+
+.department-request-history {
+    margin-top: 30px;
+}
+
+.department-request-history .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.department-request-history h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 6px;
+}
+
+.department-request-history p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Refresh button */
+#refreshDepartmentRequestsBtn {
+    padding: 10px 18px;
+    background: var(--white);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#refreshDepartmentRequestsBtn:hover {
+    background: rgba(18, 103, 233, 0.06);
+}
+
+#refreshDepartmentRequestsBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* History table */
+#departmentChange .complaints-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+#departmentChange table {
+    width: 100%;
+    min-width: 800px;
+    border-collapse: collapse;
+}
+
+#departmentChange th {
+    white-space: nowrap;
+}
+
+#departmentChange td {
+    vertical-align: middle;
+    overflow-wrap: anywhere;
+}
+
+#departmentRequestTable td[colspan] {
+    padding: 30px;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* Request status badges */
+.department-request-status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.department-request-status.pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.department-request-status.approved {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.department-request-status.rejected {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    .staff-page-content {
+        gap: 18px;
+        padding-top: 18px;
+    }
+
+    #departmentComplaints,
+    #departmentChange {
+        padding: 20px;
+    }
+
+    .staff-filter-bar {
+        align-items: stretch;
+    }
+
+    .staff-department-field {
+        max-width: none;
+        width: 100%;
+    }
+
+    #loadBtn {
+        width: 100%;
+    }
+
+    .department-change-card {
+        padding: 18px;
+    }
+
+    #requestedDepartment {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #departmentComplaints,
+    #departmentChange {
+        padding: 16px;
+    }
+
+    .staff-department-field {
+        min-width: 0;
+    }
+
+    .department-change-card {
+        padding: 16px;
+    }
+
+    #submitDepartmentRequestBtn {
+        width: 100%;
+    }
+
+    .department-request-history .section-heading {
+        align-items: flex-start;
+    }
+}

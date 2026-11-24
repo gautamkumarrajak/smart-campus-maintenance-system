@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - Smart Campus Portal</title>
+
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <!-- College Branding -->
+        <div class="login-branding">
+            <div class="login-college-logo">ST</div>
+
+            <h2>Smart Campus</h2>
+
+            <p>
+                St. Thomas College of Engineering
+                &amp; Technology
+            </p>
+
+            <p>Complaint &amp; Maintenance Management System</p>
+        </div>
+
+        <!-- Login / Register Tabs -->
+        <div class="tabs">
+            <button type="button"
+                    onclick="showLogin()"
+                    class="active">
+                Login
+            </button>
+
+            <button type="button"
+                    onclick="showRegister()">
+                Register
+            </button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm">
+
+            <h3>Welcome Back</h3>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Email Address"
+                autocomplete="username"
+                required
+            >
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+                autocomplete="current-password"
+                required
+            >
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <!-- Registration Form -->
+        <form id="registerForm" style="display:none;">
+
+            <h3>Create Account</h3>
+
+            <input
+                type="text"
+                id="registerName"
+                placeholder="Full Name"
+                autocomplete="name"
+                required
+            >
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="Email Address"
+                autocomplete="email"
+                required
+            >
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Password (minimum 8 characters)"
+                autocomplete="new-password"
+                minlength="8"
+                required
+            >
+
+            <button type="submit">
+                Register
+            </button>
+
+        </form>
+
+        <!-- Login / Registration Feedback -->
+        <p id="message" aria-live="polite"></p>
+
+    </div>
+
+    <script src="/js/login.js"></script>
+
+</body>
+</html>

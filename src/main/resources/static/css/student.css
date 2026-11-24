@@ -1,0 +1,141 @@
+
+/* =====================================
+   SMART CAMPUS - STUDENT DASHBOARD
+   ===================================== */
+
+/* Student dashboard content */
+.portal-main {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Complaint sections */
+#complaintForm,
+#complaints {
+    padding: 28px;
+    margin-bottom: 28px;
+    scroll-margin-top: 20px;
+}
+
+/* Complaint form */
+#ticketForm {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+#ticketForm .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+#ticketForm label {
+    color: #334155;
+    font-weight: 600;
+}
+
+#ticketForm input,
+#ticketForm select,
+#ticketForm textarea {
+    width: 100%;
+}
+
+/* Full-width description */
+#ticketForm .form-group:has(#description) {
+    grid-column: 1 / -1;
+}
+
+/* Submit complaint */
+.submit-complaint-btn {
+    grid-column: 1 / -1;
+    padding: 14px 22px;
+    margin-top: 5px;
+    background: var(--primary);
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.submit-complaint-btn:hover {
+    background: var(--primary-dark);
+}
+
+/* Complaints section */
+.complaints-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.complaints-header h2 {
+    margin-bottom: 7px;
+    color: var(--navy);
+    font-size: 20px;
+}
+
+.complaints-header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* Refresh button */
+#refreshBtn {
+    flex-shrink: 0;
+    padding: 11px 17px;
+}
+
+/* Complaint table */
+#complaints table {
+    min-width: 950px;
+}
+
+#complaints td:last-child {
+    min-width: 200px;
+}
+
+#complaints td button {
+    margin: 4px;
+}
+
+#complaints td select {
+    max-width: 180px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #complaintForm,
+    #complaints {
+        padding: 20px;
+    }
+
+    #ticketForm {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    #ticketForm .form-group:has(#description) {
+        grid-column: auto;
+    }
+
+    .submit-complaint-btn {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    #complaintForm,
+    #complaints {
+        padding: 16px;
+    }
+
+    #refreshBtn {
+        width: 100%;
+    }
+}

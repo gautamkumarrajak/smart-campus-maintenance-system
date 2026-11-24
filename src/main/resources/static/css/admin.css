@@ -1,0 +1,475 @@
+
+/* ==========================================
+   SMART CAMPUS - ADMIN DASHBOARD
+   ========================================== */
+
+/* Admin page layout */
+.admin-page-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    padding-top: 24px;
+}
+
+/* Admin sections */
+.admin-page-content .admin-card {
+    width: 100%;
+    padding: 28px;
+    scroll-margin-top: 20px;
+}
+
+/* Profile section */
+.admin-page-content #profile {
+    width: 100%;
+    scroll-margin-top: 20px;
+}
+
+/* ==========================================
+   STAFF APPROVAL FORM
+   ========================================== */
+
+#approveStaffForm {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+}
+
+#approveStaffForm .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+#approveStaffForm label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+#approveStaffForm input,
+#approveStaffForm select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--text);
+    font-size: 14px;
+}
+
+#approveStaffForm input:focus,
+#approveStaffForm select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(18, 103, 233, 0.1);
+}
+
+/* Approve staff submit button */
+.approve-staff-btn {
+    grid-column: 1 / -1;
+    justify-self: start;
+    padding: 13px 24px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.approve-staff-btn:hover {
+    background: var(--primary-dark);
+}
+
+/* Approval response message */
+#adminMessage {
+    margin-top: 18px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   REGISTERED USERS
+   ========================================== */
+
+.admin-user-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+#searchUsers {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    background: var(--white);
+    color: var(--text);
+}
+
+#searchUsers:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(18, 103, 233, 0.1);
+}
+
+#refreshUsers {
+    flex-shrink: 0;
+    padding: 12px 20px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#refreshUsers:hover {
+    background: var(--primary-dark);
+}
+
+/* Registered users table */
+#registeredUsers .complaints-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.users-table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+}
+
+.users-table th {
+    white-space: nowrap;
+}
+
+.users-table td {
+    vertical-align: middle;
+}
+
+.users-table td:last-child {
+    min-width: 200px;
+}
+
+/* ==========================================
+   USER MANAGEMENT ACTION BUTTONS
+   ========================================== */
+
+/* Approve user as staff */
+.approve-btn {
+    padding: 9px 13px;
+    margin: 4px;
+    background: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.approve-btn:hover {
+    background: #15803d;
+}
+
+/* Change staff department */
+.change-dept-btn {
+    padding: 9px 13px;
+    margin: 4px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.change-dept-btn:hover {
+    background: var(--primary-dark);
+}
+
+/* ==========================================
+   DEPARTMENT SELECTION POPUP
+   ========================================== */
+
+.department-dialog {
+    width: 380px;
+    max-width: 90%;
+    padding: 28px;
+    border: none;
+    border-radius: 16px;
+    background: var(--white);
+    color: var(--text);
+    box-shadow: 0 15px 45px rgba(8, 43, 92, 0.2);
+}
+
+.department-dialog::backdrop {
+    background: rgba(8, 28, 55, 0.55);
+}
+
+.department-dialog h3 {
+    margin: 0 0 20px;
+    color: var(--navy);
+    font-size: 19px;
+}
+
+.department-dialog select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--text);
+}
+
+.department-dialog select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.dialog-buttons button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.dialog-buttons button:hover {
+    background: var(--primary-dark);
+}
+
+.dialog-buttons button:last-child {
+    background: #64748b;
+}
+
+.dialog-buttons button:last-child:hover {
+    background: #475569;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 768px) {
+    .admin-page-content {
+        gap: 18px;
+        padding-top: 18px;
+    }
+
+    .admin-page-content .admin-card {
+        padding: 20px;
+    }
+
+    #approveStaffForm {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .approve-staff-btn {
+        grid-column: 1;
+        width: 100%;
+    }
+
+    .admin-user-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #refreshUsers {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-page-content .admin-card {
+        padding: 16px;
+    }
+
+    .department-dialog {
+        padding: 20px;
+    }
+
+    .dialog-buttons {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* ==========================================
+   DEPARTMENT CHANGE REQUESTS
+   ========================================== */
+
+/* Section heading and refresh button */
+#departmentRequests .section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+/* Refresh requests button */
+#refreshDepartmentRequests {
+    padding: 11px 18px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#refreshDepartmentRequests:hover {
+    background: var(--primary-dark);
+}
+
+#refreshDepartmentRequests:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Requests table */
+#departmentRequests .complaints-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 24px;
+}
+
+.department-requests-table {
+    width: 100%;
+    min-width: 1050px;
+    border-collapse: collapse;
+}
+
+.department-requests-table th {
+    white-space: nowrap;
+}
+
+.department-requests-table td {
+    vertical-align: middle;
+    overflow-wrap: anywhere;
+}
+
+#adminDepartmentRequestsTable td[colspan] {
+    padding: 30px;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* Request status badges */
+.department-request-status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.department-request-status.pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.department-request-status.approved {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.department-request-status.rejected {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* Approve request button */
+.approve-request-btn {
+    padding: 9px 13px;
+    margin: 4px;
+    background: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.approve-request-btn:hover {
+    background: #15803d;
+}
+
+/* Reject request button */
+.reject-request-btn {
+    padding: 9px 13px;
+    margin: 4px;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.reject-request-btn:hover {
+    background: #b91c1c;
+}
+
+/* Disabled action buttons */
+.approve-request-btn:disabled,
+.reject-request-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Review success and error messages */
+#departmentReviewMessage {
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#departmentReviewMessage:empty {
+    display: none;
+}
+
+#departmentReviewMessage.success {
+    color: #15803d;
+}
+
+#departmentReviewMessage.error {
+    color: #dc2626;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+
+    #departmentRequests .section-heading {
+        align-items: flex-start;
+    }
+
+    #refreshDepartmentRequests {
+        width: 100%;
+    }
+}
+

@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - Smart Campus</title>
+
+    <!-- Shared Dashboard Styling -->
+    <link rel="stylesheet" href="/css/common.css">
+
+    <!-- Admin Dashboard Styling -->
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-logo">SC</div>
+
+            <div>
+                <h2>Smart Campus</h2>
+                <p>Maintenance System</p>
+            </div>
+        </div>
+
+        <div class="sidebar-menu-label">MAIN MENU</div>
+
+        <nav class="sidebar-nav">
+
+            <a href="/pages/index.html">
+                <span class="nav-icon">⌂</span>
+                Dashboard
+            </a>
+
+            <a href="#staffApproval" class="active">
+                <span class="nav-icon">✓</span>
+                Staff Approval
+            </a>
+
+            <a href="#registeredUsers">
+                <span class="nav-icon">▤</span>
+                Registered Users
+            </a>
+
+            <a href="#departmentRequests">
+                <span class="nav-icon">⇄</span>
+                Department Requests
+            </a>
+
+            <a href="/pages/staff.html">
+                <span class="nav-icon">⚙</span>
+                Staff Panel
+            </a>
+
+            <a href="#profile">
+                <span class="nav-icon">◉</span>
+                My Profile
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <form action="/api/auth/logout"
+                  method="post"
+                  class="sidebar-logout-form">
+
+                <button type="submit" class="logout-btn">
+                    Logout
+                </button>
+
+            </form>
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="dashboard-main">
+
+        <!-- COLLEGE HEADER -->
+        <header class="portal-header">
+
+            <div class="college-branding">
+                <div class="college-logo">ST</div>
+
+                <div>
+                    <h2>
+                        St. Thomas College of Engineering
+                        &amp; Technology
+                    </h2>
+
+                    <p>
+                        Khidirpur, Kolkata | Smart Campus Portal
+                    </p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+
+                <div class="header-profile">
+                    <div class="profile-avatar"
+                         id="headerAvatar">A</div>
+
+                    <div class="header-profile-text">
+                        <strong id="headerUserName">
+                            Administrator
+                        </strong>
+
+                        <span id="headerUserRole">
+                            Admin
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+        <div class="admin-page-content">
+
+            <!-- WELCOME BANNER -->
+            <section class="welcome-banner">
+
+                <div class="welcome-content">
+                    <p class="welcome-label">
+                        ADMINISTRATION PORTAL
+                    </p>
+
+                    <h1 id="welcomeMessage">
+                        Welcome to the Admin Dashboard
+                    </h1>
+
+                    <p id="welcomeSubtitle">
+                        Manage registered users, approve campus
+                        maintenance staff, and review department
+                        change requests.
+                    </p>
+
+                    <div class="welcome-actions">
+                        <a href="#staffApproval"
+                           class="primary-action">
+                            Approve Staff
+                        </a>
+
+                        <a href="#registeredUsers"
+                           class="secondary-action">
+                            View Users
+                        </a>
+                    </div>
+                </div>
+
+                <div class="welcome-illustration">
+                    <div class="illustration-circle">⚙</div>
+                </div>
+
+            </section>
+
+            <!-- ADMIN PROFILE -->
+            <section id="profile" class="profile-card">
+
+                <div class="card-heading">
+                    <h2>Administrator Profile</h2>
+                    <p>Your account information</p>
+                </div>
+
+                <div class="profile-summary">
+
+                    <div class="profile-avatar-large"
+                         id="profileAvatar">A</div>
+
+                    <div>
+                        <h3 id="profileName">
+                            Administrator
+                        </h3>
+
+                        <span class="role-badge"
+                              id="profileRole">
+                            Admin
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="profile-detail-row">
+                    <span>Full Name</span>
+                    <strong id="profileFullName">—</strong>
+                </div>
+
+                <div class="profile-detail-row"
+                     id="profileDepartmentRow"
+                     style="display:none;">
+
+                    <span>Department</span>
+                    <strong id="profileDepartment">—</strong>
+
+                </div>
+
+                <div class="profile-detail-row">
+                    <span>Email</span>
+                    <strong id="profileEmail">
+                        Not available
+                    </strong>
+                </div>
+
+            </section>
+
+            <!-- STAFF APPROVAL -->
+            <section id="staffApproval"
+                     class="portal-section admin-card">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Approve Maintenance Staff</h2>
+
+                        <p>
+                            Assign a department and approve
+                            a registered user as maintenance staff.
+                        </p>
+                    </div>
+                </div>
+
+                <form id="approveStaffForm">
+
+                    <div class="form-group">
+                        <label for="staffEmail">
+                            Registered User Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="staffEmail"
+                            placeholder="Enter registered email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="staffDepartment">
+                            Assign Department
+                        </label>
+
+                        <select id="staffDepartment" required>
+                            <option value="">
+                                -- Select Department --
+                            </option>
+
+                            <option>Electrical Maintenance</option>
+                            <option>IT Support</option>
+                            <option>Network Support</option>
+                            <option>Plumbing Maintenance</option>
+                            <option>General Maintenance</option>
+                            <option>Technical Support</option>
+                            <option>Administration</option>
+                        </select>
+                    </div>
+
+                    <button type="submit"
+                            class="approve-staff-btn">
+                        Approve as Staff
+                    </button>
+
+                </form>
+
+                <p id="adminMessage" aria-live="polite"></p>
+
+            </section>
+
+            <!-- REGISTERED USERS -->
+            <section id="registeredUsers"
+                     class="portal-section admin-card">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Registered Users</h2>
+
+                        <p>
+                            Search and manage registered
+                            Smart Campus accounts.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="admin-user-toolbar">
+
+                    <input
+                        type="text"
+                        id="searchUsers"
+                        placeholder="Search by name, email, role or department..."
+                    >
+
+                    <button type="button"
+                            id="refreshUsers">
+                        Refresh Users
+                    </button>
+
+                </div>
+
+                <div class="complaints-table-wrapper">
+                    <table class="users-table">
+
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Department</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="usersTableBody"></tbody>
+
+                    </table>
+                </div>
+
+            </section>
+
+            <!-- DEPARTMENT CHANGE REQUESTS -->
+            <section id="departmentRequests"
+                     class="portal-section admin-card">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Department Change Requests</h2>
+
+                        <p>
+                            Review and approve or reject
+                            staff department transfer requests.
+                        </p>
+                    </div>
+
+                    <button type="button"
+                            id="refreshDepartmentRequests">
+                        Refresh Requests
+                    </button>
+
+                </div>
+
+                <div class="complaints-table-wrapper">
+
+                    <table class="department-requests-table">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Staff Name</th>
+                                <th>Current Department</th>
+                                <th>Requested Department</th>
+                                <th>Reason</th>
+                                <th>Status</th>
+                                <th>Requested On</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="adminDepartmentRequestsTable">
+
+                            <tr>
+                                <td colspan="8">
+                                    Department change requests
+                                    will appear here.
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p id="departmentReviewMessage"
+                   role="status"
+                   aria-live="polite"></p>
+
+            </section>
+
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="portal-footer">
+            Smart Campus Maintenance System
+        </footer>
+
+    </div>
+
+</div>
+
+<!-- Shared JavaScript -->
+<script src="/js/common.js"></script>
+
+<!-- Admin Dashboard JavaScript -->
+<script src="/js/admin.js"></script>
+
+</body>
+</html>

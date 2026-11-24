@@ -1,0 +1,289 @@
+
+/* ==========================================
+   SMART CAMPUS - LOGIN & REGISTRATION
+   ========================================== */
+
+:root {
+    --primary: #1267e9;
+    --primary-dark: #0752bf;
+    --navy: #082b5c;
+    --teal: #08b6bb;
+    --background: #f3f7fd;
+    --text: #142c50;
+    --muted: #64748b;
+    --border: #e0e9f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(
+        135deg,
+        #eaf2ff 0%,
+        #f5f9ff 55%,
+        #e6f7fa 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    color: var(--text);
+}
+
+/* ==========================================
+   LOGIN CONTAINER
+   ========================================== */
+
+.login-container {
+    width: 100%;
+    max-width: 440px;
+    padding: 40px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 18px 55px rgba(8, 43, 92, 0.1);
+    text-align: center;
+}
+
+/* Portal branding */
+
+.login-container h2 {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+}
+
+.login-container > p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* ==========================================
+   LOGIN / REGISTER TABS
+   ========================================== */
+
+.tabs {
+    display: flex;
+    gap: 6px;
+    padding: 5px;
+    margin: 30px 0 28px;
+    background: #edf3fc;
+    border-radius: 12px;
+}
+
+.tabs button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.tabs button:hover {
+    background: #dce9ff;
+    color: var(--primary);
+}
+
+.tabs button.active {
+    background: #ffffff;
+    color: var(--primary);
+    box-shadow: 0 2px 8px rgba(8, 43, 92, 0.08);
+}
+
+/* ==========================================
+   FORM STYLING
+   ========================================== */
+
+#loginForm,
+#registerForm {
+    text-align: left;
+}
+
+#loginForm h3,
+#registerForm h3 {
+    font-size: 21px;
+    color: var(--navy);
+    margin-bottom: 20px;
+}
+
+#loginForm input,
+#registerForm input {
+    display: block;
+    width: 100%;
+    padding: 14px 15px;
+    margin-bottom: 15px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+#loginForm input::placeholder,
+#registerForm input::placeholder {
+    color: #94a3b8;
+}
+
+#loginForm input:focus,
+#registerForm input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(18, 103, 233, 0.1);
+}
+
+/* ==========================================
+   SUBMIT BUTTON
+   ========================================== */
+
+#loginForm button[type="submit"],
+#registerForm button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#loginForm button[type="submit"]:hover,
+#registerForm button[type="submit"]:hover {
+    background: var(--primary-dark);
+}
+
+/* ==========================================
+   FEEDBACK MESSAGE
+   ========================================== */
+
+#message {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 480px) {
+    body {
+        padding: 16px;
+    }
+
+    .login-container {
+        padding: 28px 22px;
+        border-radius: 16px;
+    }
+
+    .login-container h2 {
+        font-size: 26px;
+    }
+
+    .tabs {
+        margin: 24px 0;
+    }
+
+    #loginForm h3,
+    #registerForm h3 {
+        font-size: 19px;
+    }
+}
+
+
+/* ==========================================
+   COLLEGE BRANDING - LOGIN PAGE
+   ========================================== */
+
+.login-branding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+/* College logo */
+.login-college-logo {
+    width: 68px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    border-radius: 18px;
+    background: linear-gradient(
+        135deg,
+        #1267e9,
+        #08b6bb
+    );
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 800;
+    box-shadow: 0 8px 20px rgba(18, 103, 233, 0.2);
+}
+
+/* Smart Campus title */
+.login-branding h2 {
+    margin: 0 0 10px;
+    color: var(--navy);
+    font-size: 30px;
+    font-weight: 800;
+}
+
+/* College name */
+.login-branding p {
+    margin: 0 0 6px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.login-branding p:first-of-type {
+    color: var(--navy);
+    font-weight: 700;
+}
+
+/* System description */
+.login-branding p:last-of-type {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .login-college-logo {
+        width: 58px;
+        height: 58px;
+        font-size: 22px;
+        border-radius: 15px;
+    }
+
+    .login-branding h2 {
+        font-size: 26px;
+    }
+
+    .login-branding p {
+        font-size: 13px;
+    }
+}
